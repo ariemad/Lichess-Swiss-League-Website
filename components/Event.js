@@ -42,9 +42,11 @@ function Event({ tournamentData }) {
           </p>
         );
       } else {
-        <p className="text-xl pt-2">
-          Starts in: <strong>00:00</strong>
-        </p>;
+        return (
+          <p className="text-xl pt-2">
+            Starts in: <strong>00:00</strong>
+          </p>
+        );
       }
     } else if (tournamentData.status == "started") {
       <p className="text-xl pt-2">
