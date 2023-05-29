@@ -19,3 +19,12 @@
 body {
   background-color: #f4f4f5; /* Zinc100 */
 }
+
+main {
+  width: 1200px;
+  padding-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 0.125rem /* 2px */;
+  margin: auto;
+}

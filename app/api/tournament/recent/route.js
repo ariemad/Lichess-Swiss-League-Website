@@ -1,7 +1,8 @@
 export async function GET(req) {
   try {
     const response = await fetch(
-      "https://lichess.org/api/team/chess-swiss-league/swiss?max=2"
+      "https://lichess.org/api/team/chess-swiss-league/swiss?max=5",
+      { cache: "no-store" }
     );
 
     let text = (await response.text()).split("\n");
@@ -11,6 +12,6 @@ export async function GET(req) {
     return new Response(JSON.stringify(data));
   } catch (error) {
     const message = { error: "Internal error" };
-    return new Response(JSON.stringify(message));
+    return new Response(JSON.stringify([]));
   }
 }
