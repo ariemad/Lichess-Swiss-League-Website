@@ -1,6 +1,6 @@
 "use client";
 
-import { timeDifference } from "@/helper/timeDiff";
+import { timeDifference } from "@/utils/timeDiff";
 import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
 dayjs.extend(duration);

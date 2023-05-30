@@ -14,7 +14,9 @@ function Events() {
         const data = await response.json();
 
         setEvents(data);
-      } catch (error) {}
+      } catch (error) {
+        setEvents([]);
+      }
     };
 
     fetchData();
