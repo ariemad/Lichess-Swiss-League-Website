@@ -11,7 +11,6 @@ export async function GET(req) {
 
     return new Response(JSON.stringify(data));
   } catch (error) {
-    const message = { error: "Internal error" };
-    return new Response(JSON.stringify([]));
+    return new Response(JSON.stringify({ error: "Internal error" }));
   }
 }
