@@ -9,7 +9,9 @@ function Events() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("./api/tournament/recent");
+        const response = await fetch("./api/tournament/recent", {
+          cache: "no-store",
+        });
 
         const data = await response.json();
 
@@ -26,6 +28,10 @@ function Events() {
   }, []);
 
   const addEvents = () => {
+    if (events.error) {
+      return "";
+    }
+
     let ans = [];
     const key = 0;
 
@@ -66,7 +72,7 @@ function Events() {
     return ans;
   };
 
-  return <div className="w-full text-center">{addEvents()}</div>;
+  return <div className="w-full text-center">{addEvents(events)}</div>;
 }
 
 export default Events;
