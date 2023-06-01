@@ -9,13 +9,10 @@ export async function GET(req) {
 
     //Get data
 
-    const collection = mongoose.connection.db.collection("metas");
+    const collection = mongoose.connection.db.collection("players");
+    const count = await collection.estimatedDocumentCount({});
 
-    let cursor = collection.find({});
-
-    let data = await cursor.toArray();
-
-    return new Response(JSON.stringify(data[0]));
+    return new Response(count);
   } catch (error) {
     return new Response(JSON.stringify({ error: "Internal error" }));
   }

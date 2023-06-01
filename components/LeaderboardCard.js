@@ -28,7 +28,7 @@ function LeaderboardCard({ time, category, stats }) {
   return (
     <div className="border rounded-md border-gray-950 mb-4">
       <h3 className="text-center p-2">{timeString + " - " + categoryString}</h3>
-      <TableContainer component={Paper}>
+      <TableContainer>
         <Table sx={{}} aria-label="simple table">
           <TableBody>
             {stats.map((player, index) => (
