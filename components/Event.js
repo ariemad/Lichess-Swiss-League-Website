@@ -49,12 +49,14 @@ function Event({ tournamentData }) {
         );
       }
     } else if (tournamentData.status == "started") {
-      <p className="text-xl pt-2">
-        Round:
-        <strong>
-          {tournamentData.round} of {tournamentData.nbRounds}
-        </strong>
-      </p>;
+      return (
+        <p className="text-xl pt-2">
+          {"Round: "}
+          <strong>
+            {tournamentData.round} of {tournamentData.nbRounds}
+          </strong>
+        </p>
+      );
     } else if (tournamentData.status == "finished") {
       let ended;
       let dur = dayjs.duration(-startsIn);
