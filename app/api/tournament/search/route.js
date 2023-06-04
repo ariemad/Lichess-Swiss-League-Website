@@ -1,4 +1,5 @@
 import connectDB from "@/db";
+import { getStartOfMonth, getStartOfWeek } from "@/utils/getStartOf";
 
 const mongoose = require("mongoose");
 
@@ -17,19 +18,30 @@ export async function GET(req) {
     const order = params.get("order");
     const orderBy = params.get("orderBy");
 
-    const collection = mongoose.connection.db.collection("players");
+    const collection = mongoose.connection.db.collection("tournaments");
+
+    //Prepare query
+
+    let filterString;
+    let targetDate;
+    if (timeFilter == "allTime") {
+      filterString = {};
+    } else if (timeFilter == "monthly") {
+      targetDate = getStartOfMonth();
+      filterString = { dateField: { $gt: targetDate } };
+    } else if (timeFilter == "weekly") {
+      targetDate = getStartOfWeek();
+      filterString = { dateField: { $gt: targetDate } };
+    }
+
+    console.log(filterString);
+
+    let sortString = [`${orderBy}`, order];
 
     //Get Data
 
-    let sortString;
-    if (orderBy == "_id") {
-      sortString = [`_id`, order];
-    } else {
-      sortString = [`stats.${timeFilter}.${orderBy}`, order];
-    }
-
     let cursor = collection
-      .find({})
+      .find(filterString)
       .sort([sortString])
       .skip(page * rowsPerPage)
       .limit(Number(rowsPerPage));

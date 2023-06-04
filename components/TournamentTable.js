@@ -22,40 +22,41 @@ import FormControl from "@mui/material/FormControl";
 
 const headCells = [
   {
-    id: "_id",
+    id: "name",
     numeric: false,
     disablePadding: false,
-    label: "Player",
+    label: "Name",
   },
   {
-    id: "participation",
+    id: "results.0.username",
     numeric: true,
     disablePadding: false,
-    label: "Participations",
+    label: "Winner",
   },
   {
-    id: "points",
+    id: "startsAt",
     numeric: true,
     disablePadding: false,
-    label: "Points",
+    label: "Date",
   },
   {
-    id: "nbWins",
+    id: "nbPlayers",
     numeric: true,
     disablePadding: false,
-    label: "Tournament Wins",
+    label: "No. of players",
   },
   {
-    id: "avgRank",
+    id: "nbRounds",
     numeric: true,
     disablePadding: false,
-    label: "Average Rank",
+    label: "No. of rounds",
   },
+
   {
-    id: "avgPerformance",
+    id: "clock",
     numeric: true,
     disablePadding: false,
-    label: "Average Performance",
+    label: "Time Control",
   },
 ];
 
@@ -110,7 +111,7 @@ function EnhancedTableToolbar({ changeTimeFilter }) {
         id="tableTitle"
         component="div"
       >
-        Players
+        Tournaments
       </Typography>
 
       <FormControl>
@@ -146,11 +147,11 @@ function EnhancedTableToolbar({ changeTimeFilter }) {
   );
 }
 
-export default function EnhancedTable() {
+export default function TournamentTable() {
   const [count, setCount] = React.useState(null);
 
   (async () => {
-    let res = await fetch(`./api/player/length`);
+    let res = await fetch(`./api/tournament/length`);
     let data = await res.json();
     if (data.hasOwnProperty("error")) {
       setCount(Number(100));
@@ -160,7 +161,7 @@ export default function EnhancedTable() {
   })();
 
   const [order, setOrder] = React.useState("asc");
-  const [orderBy, setOrderBy] = React.useState("participation");
+  const [orderBy, setOrderBy] = React.useState("startsAt");
   const [page, setPage] = React.useState(0);
   const [timeFilter, setTimeFilter] = React.useState("allTime");
   const rowsPerPage = 10;
@@ -190,7 +191,7 @@ export default function EnhancedTable() {
   React.useEffect(() => {
     setVisibleRows(new Array(rowsPerPage).fill(null));
     //Prepare request
-    const baseUrl = `./api/player/search`;
+    const baseUrl = `./api/tournament/search`;
     const queryParams = new URLSearchParams();
     queryParams.append("rowsPerPage", rowsPerPage);
     queryParams.append("page", page);
@@ -279,22 +280,20 @@ border-gray-950 border"
                         scope="row"
                         padding="left"
                       >
-                        {row._id}
+                        {row.name}
                       </TableCell>
                       <TableCell align="right">
-                        {row.stats[timeFilter]["participation"]}
+                        {row.results[0].username}
                       </TableCell>
                       <TableCell align="right">
-                        {row.stats[timeFilter]["points"]}
+                        {row.startsAt.slice(0, 10)}
                       </TableCell>
+                      <TableCell align="right">{row.nbPlayers}</TableCell>
+                      <TableCell align="right">{row.nbRounds}</TableCell>
                       <TableCell align="right">
-                        {row.stats[timeFilter]["nbWins"]}
-                      </TableCell>
-                      <TableCell align="right">
-                        {row.stats[timeFilter]["avgRank"]}
-                      </TableCell>
-                      <TableCell align="right">
-                        {row.stats[timeFilter]["avgPerformance"]}
+                        {row.clock.limit % 60 == 0
+                          ? `${row.clock.limit / 60}+${row.clock.increment}`
+                          : `${row.clock.limit}+${row.clock.increment}`}
                       </TableCell>
                     </TableRow>
                   );

@@ -5,7 +5,6 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
 
 function LeaderboardCard({ time, category, stats }) {
   const dictTime = {
@@ -26,7 +25,7 @@ function LeaderboardCard({ time, category, stats }) {
   let categoryString = dictCategory[category];
 
   return (
-    <div className="border rounded-md border-gray-950 mb-4">
+    <div className="border rounded-md border-gray-950 mb-4 bg-white">
       <h3 className="text-center p-2">{timeString + " - " + categoryString}</h3>
       <TableContainer>
         <Table sx={{}} aria-label="simple table">

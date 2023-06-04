@@ -1,4 +1,5 @@
 import PlayerTable from "@/components/PlayerTable";
+import TournamentTable from "@/components/TournamentTable";
 
 function Tournament() {
   return (
@@ -6,7 +7,9 @@ function Tournament() {
       className="grid grid-cols-4 gap-0.5 m-auto"
       style={{ width: "1200px" }}
     >
-      <PlayerTable></PlayerTable>
+      <div className="col-span-full">
+        <TournamentTable></TournamentTable>
+      </div>
     </main>
   );
 }

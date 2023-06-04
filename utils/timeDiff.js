@@ -9,6 +9,4 @@ function timeDifference(isoString) {
   return diff;
 }
 
-console.log(timeDifference("2023-05-29T11:30:00Z"));
-
 module.exports = { timeDifference };
