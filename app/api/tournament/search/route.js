@@ -34,8 +34,6 @@ export async function GET(req) {
       filterString = { dateField: { $gt: targetDate } };
     }
 
-    console.log(filterString);
-
     let sortString = [`${orderBy}`, order];
 
     //Get Data

@@ -1,16 +1,15 @@
-import Image from "next/image";
-import Nav from "../components/Nav";
 import Events from "@/components/Events";
 import Leaderboard from "@/components/Leaderboard";
+import { main } from "@/style/style";
 
 export default function Home() {
   return (
-    <main>
+    <main className={main} style={{ width: "1200px" }}>
       <div>
         <Events></Events>
       </div>
       <div></div>
-      <div>
+      <div className="col-start-4">
         <Leaderboard
           display={"array"}
           array={[

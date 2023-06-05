@@ -1,3 +1,4 @@
+import { typography } from "@/style/style";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -15,16 +16,16 @@ function Nav() {
         />
       </Link>
       <Link href={"/player"}>
-        <h3 className="text-xl pl-5">Players</h3>
+        <h3 className={typography.header}>Players</h3>
       </Link>
       <Link href={"/tournament"}>
-        <h3 className="text-xl pl-8">Tournaments</h3>
+        <h3 className={typography.header + "pl-8"}>Tournaments</h3>
       </Link>
       <Link href={"/"}>
-        <h3 className="text-xl pl-8">Blog</h3>
+        <h3 className={typography.header + "pl-8"}>Blog</h3>
       </Link>
-      <Link href={"/"}>
-        <h3 className="text-xl pl-8">Contribute / Sponsor</h3>
+      <Link href={"/contribute"}>
+        <h3 className={typography.header + "pl-8"}>Contribute / Sponsor</h3>
       </Link>
     </nav>
   );

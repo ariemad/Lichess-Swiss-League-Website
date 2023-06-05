@@ -19,6 +19,7 @@ import { visuallyHidden } from "@mui/utils";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControl from "@mui/material/FormControl";
+import { typography } from "@/style/style";
 
 const headCells = [
   {
@@ -104,17 +105,10 @@ EnhancedTableHead.propTypes = {
 
 function EnhancedTableToolbar({ changeTimeFilter }) {
   return (
-    <Toolbar>
-      <Typography
-        sx={{ flex: "1 1 50%" }}
-        variant="h4"
-        id="tableTitle"
-        component="div"
-      >
-        Tournaments
-      </Typography>
+    <Toolbar className="h-28">
+      <div className={"flex-1" + typography.headerBig}>Tournaments</div>
 
-      <FormControl>
+      {/*  <FormControl>
         <RadioGroup
           sx={{ padding: "1rem 0" }}
           aria-labelledby="demo-radio-buttons-group-label"
@@ -142,7 +136,7 @@ function EnhancedTableToolbar({ changeTimeFilter }) {
             labelPlacement={"top"}
           />
         </RadioGroup>
-      </FormControl>
+      </FormControl> */}
     </Toolbar>
   );
 }

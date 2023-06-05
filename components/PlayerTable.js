@@ -19,6 +19,7 @@ import { visuallyHidden } from "@mui/utils";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControl from "@mui/material/FormControl";
+import { typography } from "@/style/style";
 
 const headCells = [
   {
@@ -103,15 +104,8 @@ EnhancedTableHead.propTypes = {
 
 function EnhancedTableToolbar({ changeTimeFilter }) {
   return (
-    <Toolbar>
-      <Typography
-        sx={{ flex: "1 1 50%" }}
-        variant="h4"
-        id="tableTitle"
-        component="div"
-      >
-        Players
-      </Typography>
+    <Toolbar className="h-28">
+      <div className={"flex-1" + typography.headerBig}>Players</div>
 
       <FormControl>
         <RadioGroup

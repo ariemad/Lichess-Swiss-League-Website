@@ -1,5 +1,6 @@
 "use client";
 
+import { borders, typography } from "@/style/style";
 import { timeDifference } from "@/utils/timeDiff";
 import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
@@ -37,20 +38,20 @@ function Event({ tournamentData }) {
       if (startsIn > 0) {
         let dur = dayjs.duration(startsIn);
         return (
-          <p className="text-xl pt-2">
+          <p className={typography.header + " pt-2"}>
             Starts in: <strong>{dur.format("mm:ss")}</strong>
           </p>
         );
       } else {
         return (
-          <p className="text-xl pt-2">
+          <p className={typography.header + " pt-2"}>
             Starts in: <strong>00:00</strong>
           </p>
         );
       }
     } else if (tournamentData.status == "started") {
       return (
-        <p className="text-xl pt-2">
+        <p className={typography.header + " pt-2"}>
           {"Round: "}
           <strong>
             {tournamentData.round} of {tournamentData.nbRounds}
@@ -79,7 +80,7 @@ function Event({ tournamentData }) {
       }
 
       return (
-        <p className="text-xl pt-2">
+        <p className={typography.header + " pt-2"}>
           Ended: <strong>{ended}</strong>
         </p>
       );
@@ -87,14 +88,9 @@ function Event({ tournamentData }) {
   };
 
   return (
-    <div className={addColor() + "h-20 mb-5 rounded-md border-gray-950 border"}>
-      <p className="text-xl pt-2">{tournamentData.name}</p>
+    <div className={addColor() + "h-20 mb-5" + borders}>
+      <p className={typography.header + " pt-2"}>{tournamentData.name}</p>
       {addTimeInfo()}
-      {/*       {{startsIn > 0 ? (
-        
-      ) : (
-        ""
-      )}} */}
     </div>
   );
 }
