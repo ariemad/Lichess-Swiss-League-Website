@@ -34,6 +34,7 @@ function Leaderboard({ display, array }) {
         for (const category in stats.leaderboard[time]) {
           ans.push(
             <LeaderboardCard
+              key={stats.leaderboard[time][category]}
               time={time}
               category={category}
               stats={stats.leaderboard[time][category]}
@@ -47,6 +48,7 @@ function Leaderboard({ display, array }) {
         let category = array[i][1];
         ans.push(
           <LeaderboardCard
+            key={stats.leaderboard[time][category]}
             time={time}
             category={category}
             stats={stats.leaderboard[time][category]}

@@ -1,3 +1,4 @@
+import { links } from "@/style/links";
 import { typography } from "@/style/style";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,11 +22,36 @@ function Nav() {
       <Link href={"/tournament"}>
         <h3 className={typography.header + "pl-8"}>Tournaments</h3>
       </Link>
-      <Link href={"/"}>
+      <Link href={"/blog"}>
         <h3 className={typography.header + "pl-8"}>Blog</h3>
       </Link>
       <Link href={"/contribute"}>
         <h3 className={typography.header + "pl-8"}>Contribute / Sponsor</h3>
+      </Link>
+      <div className="flex-1"></div>
+      <Link
+        href={links.lichess}
+        className="flex-none max-w-fit min-w-fit h-2/4 aspect-square mx-3"
+      >
+        <Image
+          src="/images/lichess.png"
+          alt="Lichess Logo"
+          width={300}
+          height={300}
+          className="h-full w-full"
+        />
+      </Link>
+      <Link
+        href={links.discord}
+        className="flex-none max-w-fit min-w-fit h-2/4 aspect-square mx-3"
+      >
+        <Image
+          src="/images/discord.png"
+          alt="Discord Logo"
+          width={300}
+          height={300}
+          className="h-full w-full"
+        />
       </Link>
     </nav>
   );

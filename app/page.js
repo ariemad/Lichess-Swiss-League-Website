@@ -1,3 +1,4 @@
+import BlogPost from "@/components/Blog/BlogPost";
 import Events from "@/components/Events";
 import Leaderboard from "@/components/Leaderboard";
 import { main } from "@/style/style";
@@ -8,7 +9,9 @@ export default function Home() {
       <div>
         <Events></Events>
       </div>
-      <div></div>
+      <div className="col-span-2">
+        <BlogPost last={true}></BlogPost>
+      </div>
       <div className="col-start-4">
         <Leaderboard
           display={"array"}

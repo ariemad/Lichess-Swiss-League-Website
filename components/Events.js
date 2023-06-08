@@ -27,17 +27,20 @@ function Events() {
     return () => clearInterval(intervalID);
   }, []);
 
-  const addEvents = () => {
+  const addEvents = (events) => {
     if (events.error) {
       return "";
     }
 
     let ans = [];
-    const key = 0;
 
     let futureEvents = events.filter((event) => event.status == "created");
     if (futureEvents.length > 0) {
-      ans.push(<p className="text-l">Future Events</p>);
+      ans.push(
+        <p key={"future-events"} className="text-l">
+          Future Events
+        </p>
+      );
     }
 
     futureEvents.map((tournamentData) => {
@@ -48,7 +51,11 @@ function Events() {
 
     let ongoingEvents = events.filter((event) => event.status == "started");
     if (ongoingEvents.length > 0) {
-      ans.push(<p className="text-l">Ongoing Events</p>);
+      ans.push(
+        <p key={"ongoing-events"} className="text-l">
+          Ongoing Events
+        </p>
+      );
     }
 
     ongoingEvents.map((tournamentData) => {
@@ -59,7 +66,11 @@ function Events() {
 
     let finishEvents = events.filter((event) => event.status == "finished");
     if (finishEvents.length > 0) {
-      ans.push(<p className="text-l">Previous Events</p>);
+      ans.push(
+        <p key={"previous-events"} className="text-l">
+          Previous Events
+        </p>
+      );
 
       ans.push(
         <Event

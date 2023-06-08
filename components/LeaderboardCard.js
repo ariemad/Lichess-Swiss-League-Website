@@ -38,15 +38,11 @@ function LeaderboardCard({ time, category, stats }) {
                 key={index}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-                <TableCell align="center" sx={typography.paragraph}>
-                  {index + 1}
-                </TableCell>
-                <TableCell align="center" sx={typography.paragraph}>
+                <TableCell align="center">{index + 1}</TableCell>
+                <TableCell align="center">
                   <strong>{player[0]}</strong>
                 </TableCell>
-                <TableCell align="right" sx={typography.paragraph}>
-                  {player[1]}
-                </TableCell>
+                <TableCell align="right">{player[1]}</TableCell>
               </TableRow>
             ))}
           </TableBody>
