@@ -214,7 +214,7 @@ export default function TournamentTable() {
   }, [order, orderBy, rowsPerPage, page, timeFilter]);
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box className="w-full max-lg:w-[990px] ">
       <div
         className="w-full mb-2 bg-white rounded-md
 border-gray-950 border"

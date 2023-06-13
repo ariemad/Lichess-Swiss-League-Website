@@ -1,14 +1,15 @@
 import PlayerTable from "@/components/PlayerTable";
 import TournamentTable from "@/components/TournamentTable";
 import { main } from "@/style/style";
+import { Fragment } from "react";
 
 function Tournament() {
   return (
-    <main className={main} style={{ width: "1200px" }}>
-      <div className="col-span-full">
+    <Fragment>
+      <div className="col-span-full row-span-full max-lg:overflow-scroll">
         <TournamentTable></TournamentTable>
       </div>
-    </main>
+    </Fragment>
   );
 }
 

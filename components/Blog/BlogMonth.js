@@ -1,6 +1,7 @@
 "use client";
 
-import { arrowRight } from "@/style/style";
+import { arrowRight, linkStyle } from "@/style/style";
+import Link from "next/link";
 import { useState } from "react";
 
 function BlogMonth({ time, data }) {
@@ -8,9 +9,12 @@ function BlogMonth({ time, data }) {
   let content = [];
 
   for (let i = 0; i < data.length; i++) {
-    content.push(<p className="pl-2">{data[i][0]}</p>);
+    content.push(
+      <Link key={data[i][1]} className={linkStyle} href={`blog/${data[i][1]}`}>
+        <p className="pl-2">{data[i][0]}</p>
+      </Link>
+    );
   }
-
   const monthMap = {
     "01": "January",
     "02": "February",

@@ -6,7 +6,10 @@ export const typography = {
 
 export const borders = " rounded-md border-gray-950 border ";
 
-export const main = " grid grid-cols-4 m-auto gap-6 pt-5 ";
+export const main =
+  "grid items-start grid-cols-4 grid-rows-2-auto  m-auto gap-6 pt-5 px-4" +
+  " max-lg:grid-cols-3" +
+  " max-md:grid-cols-2";
 
 export const linkStyle = "text-sky-500 font-bold";
 

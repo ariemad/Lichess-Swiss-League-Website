@@ -2,12 +2,14 @@ import { borders, typography } from "@/style/style";
 import { getPostsData } from "@/utils/posts";
 import Image from "next/image";
 
-function BlogPost({ last, data }) {
+function BlogPost({ last, blogID }) {
   let posts = getPostsData();
   let content;
 
   if (last) {
     content = posts.at(-1);
+  } else {
+    content = posts.find((element) => blogID == element.data.id);
   }
 
   return (

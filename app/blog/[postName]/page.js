@@ -3,25 +3,32 @@ import BlogPost from "@/components/Blog/BlogPost";
 import { borders, linkStyle, main, typography } from "@/style/style";
 import { getPostsMetaData } from "@/utils/posts";
 import { useRouter } from "next/navigation";
+import { Fragment } from "react";
 
 function Blog({ params }) {
   const postsMetaData = getPostsMetaData();
 
+  let content;
+
   if (postsMetaData.find((metadata) => metadata.id == params.postName)) {
-    console.log(true);
+    content = <BlogPost last={false} blogID={params.postName}></BlogPost>;
   } else {
-    //Go to http://localhost:3000/blog
+    content = <BlogPost last={true}></BlogPost>;
   }
 
   return (
-    <main className={main} style={{ width: "1200px" }}>
+    <Fragment>
       <div>
         <BlogAccordion></BlogAccordion>
       </div>
-      <div className="col-start-2 col-span-2 ">
-        <BlogPost last={true}></BlogPost>
+      <div
+        className={
+          "col-start-2 col-span-2 row-span-full" + " max-md:col-start-1"
+        }
+      >
+        {content}
       </div>
-    </main>
+    </Fragment>
   );
 }
 

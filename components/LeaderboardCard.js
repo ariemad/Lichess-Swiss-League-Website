@@ -30,7 +30,7 @@ function LeaderboardCard({ time, category, stats }) {
       <h3 className={"text-center p-2" + typography.header}>
         {timeString + " - " + categoryString}
       </h3>
-      <TableContainer>
+      <TableContainer sx={{ overflow: "visible" }}>
         <Table sx={{}} aria-label="simple table">
           <TableBody>
             {stats.map((player, index) => (
@@ -39,8 +39,8 @@ function LeaderboardCard({ time, category, stats }) {
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell align="center">{index + 1}</TableCell>
-                <TableCell align="center">
-                  <strong>{player[0]}</strong>
+                <TableCell align="center" size="small">
+                  <strong className=" text-ellipsis">{player[0]}</strong>
                 </TableCell>
                 <TableCell align="right">{player[1]}</TableCell>
               </TableRow>

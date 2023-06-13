@@ -1,6 +1,7 @@
 import "./globals.css";
 import Nav from "../components/Nav";
 import { Inter } from "next/font/google";
+import { main } from "@/style/style";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,7 +15,12 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <Nav></Nav>
-        {children}
+        <main
+          className={main}
+          style={{ "max-width": "1200px", gridTemplateRows: "repeat(2, auto)" }}
+        >
+          {children}
+        </main>
       </body>
     </html>
   );
