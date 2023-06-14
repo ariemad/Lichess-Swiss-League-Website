@@ -1,8 +1,5 @@
-import { borders, linkStyle, main, typography } from "@/style/style";
 import Events from "@/components/Events";
 import Leaderboard from "@/components/Leaderboard";
-import Link from "next/link";
-import { links } from "@/style/links";
 import { Fragment } from "react";
 import Contribute from "@/components/Contribute";
 

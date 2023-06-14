@@ -17,6 +17,7 @@ function Nav() {
     <nav className="h-24 w-full flex flex-row items-center pl-4 bg-zinc-200">
       <Link href={"/"} className="flex-none max-w-fit min-w-fit h-3/4 ">
         <Image
+          priority
           src="/images/Logo-small.png"
           alt="Swiss League Logo"
           width={300}

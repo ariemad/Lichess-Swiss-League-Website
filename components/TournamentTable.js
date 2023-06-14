@@ -248,7 +248,7 @@ border-gray-950 border"
                         component="th"
                         id={labelId}
                         scope="row"
-                        padding="left"
+                        padding="normal"
                       >
                         ...
                       </TableCell>
@@ -272,7 +272,7 @@ border-gray-950 border"
                         component="th"
                         id={labelId}
                         scope="row"
-                        padding="left"
+                        padding="normal"
                       >
                         {row.name}
                       </TableCell>

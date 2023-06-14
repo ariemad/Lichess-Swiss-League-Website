@@ -8,6 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Swiss League",
   description: "Swiss League Website",
+  manifest: "/icons/manifest.json",
 };
 
 export default function RootLayout({ children }) {
@@ -15,10 +16,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <Nav></Nav>
-        <main
-          className={main}
-          style={{ "max-width": "1200px", gridTemplateRows: "repeat(2, auto)" }}
-        >
+        <main className={main} style={{ gridTemplateRows: "repeat(2, auto)" }}>
           {children}
         </main>
       </body>

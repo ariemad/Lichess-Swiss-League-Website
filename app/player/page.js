@@ -1,5 +1,4 @@
 import PlayerTable from "@/components/PlayerTable";
-import { main } from "@/style/style";
 import { Fragment } from "react";
 
 function Player() {

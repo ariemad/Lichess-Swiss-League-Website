@@ -1,6 +1,4 @@
-import PlayerTable from "@/components/PlayerTable";
 import TournamentTable from "@/components/TournamentTable";
-import { main } from "@/style/style";
 import { Fragment } from "react";
 
 function Tournament() {

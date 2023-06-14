@@ -1,6 +1,5 @@
 import BlogAccordion from "@/components/Blog/BlogAccordion";
 import BlogPost from "@/components/Blog/BlogPost";
-import { borders, linkStyle, main, typography } from "@/style/style";
 import { Fragment } from "react";
 
 function Blog() {

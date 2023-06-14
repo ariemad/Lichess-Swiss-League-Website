@@ -1,8 +1,6 @@
 import BlogAccordion from "@/components/Blog/BlogAccordion";
 import BlogPost from "@/components/Blog/BlogPost";
-import { borders, linkStyle, main, typography } from "@/style/style";
 import { getPostsMetaData } from "@/utils/posts";
-import { useRouter } from "next/navigation";
 import { Fragment } from "react";
 
 function Blog({ params }) {

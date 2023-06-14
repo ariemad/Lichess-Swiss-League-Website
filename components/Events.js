@@ -45,7 +45,10 @@ function Events() {
 
     futureEvents.map((tournamentData) => {
       ans.push(
-        <Event key={tournamentData.id} tournamentData={tournamentData}></Event>
+        <Event
+          key={tournamentData.id + tournamentData.startsAt}
+          tournamentData={tournamentData}
+        ></Event>
       );
     });
 
@@ -60,7 +63,10 @@ function Events() {
 
     ongoingEvents.map((tournamentData) => {
       ans.push(
-        <Event key={tournamentData.id} tournamentData={tournamentData}></Event>
+        <Event
+          key={tournamentData.id + tournamentData.startsAt}
+          tournamentData={tournamentData}
+        ></Event>
       );
     });
 
