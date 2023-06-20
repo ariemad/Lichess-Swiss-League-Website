@@ -1,3 +1,5 @@
+import { NextResponse } from "next/server";
+
 export async function GET(req) {
   try {
     const response = await fetch(
@@ -9,8 +11,8 @@ export async function GET(req) {
     text.pop(); //Remove empty string
     let data = text.map((element) => JSON.parse(element));
 
-    return new Response(JSON.stringify(data));
+    return new NextResponse(JSON.stringify(data));
   } catch (error) {
-    return new Response(JSON.stringify({ error: "Internal error" }));
+    return new NextResponse(JSON.stringify({ error: "Internal error" }));
   }
 }

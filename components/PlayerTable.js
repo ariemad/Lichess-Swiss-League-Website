@@ -140,12 +140,17 @@ function EnhancedTableToolbar({ changeTimeFilter }) {
   );
 }
 
+const getPlayerLength = async () => {
+  const res = await fetch((process.env.URL || "") + `/api/player/length`);
+  const data = await res.json();
+  return data;
+};
+
 export default function EnhancedTable() {
   const [count, setCount] = React.useState(null);
 
   (async () => {
-    let res = await fetch(`./api/player/length`);
-    let data = await res.json();
+    let data = await getPlayerLength();
     if (data.hasOwnProperty("error")) {
       setCount(Number(100));
     } else {
@@ -184,7 +189,7 @@ export default function EnhancedTable() {
   React.useEffect(() => {
     setVisibleRows(new Array(rowsPerPage).fill(null));
     //Prepare request
-    const baseUrl = `./api/player/search`;
+    const baseUrl = `/api/player/search`;
     const queryParams = new URLSearchParams();
     queryParams.append("rowsPerPage", rowsPerPage);
     queryParams.append("page", page);

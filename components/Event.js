@@ -19,7 +19,7 @@ function Event({ tournamentData }) {
       setStartsIn(timeDifference(tournamentData.startsAt));
     }, 1000);
     return () => clearInterval(intervalID);
-  }, []);
+  });
 
   //Event Color
   const addColor = () => {

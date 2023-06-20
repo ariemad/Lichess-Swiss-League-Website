@@ -1,7 +1,9 @@
 import connectDB from "@/db";
 import { getStartOfMonth, getStartOfWeek } from "@/utils/getStartOf";
+import { NextResponse } from "next/server";
+import mongoose from "mongoose";
 
-const mongoose = require("mongoose");
+export const dynamic = "force-dynamic";
 
 export async function GET(req) {
   try {
@@ -11,6 +13,7 @@ export async function GET(req) {
     //Format request
 
     let url = new URL(req.url);
+
     const params = url.searchParams;
     const rowsPerPage = params.get("rowsPerPage");
     const page = params.get("page");
@@ -46,8 +49,13 @@ export async function GET(req) {
 
     let data = await cursor.toArray();
 
-    return new Response(JSON.stringify(data));
+    return new NextResponse(JSON.stringify(data));
   } catch (error) {
-    return new Response(JSON.stringify({ error: "Internal Error" }));
+    return new NextResponse(
+      JSON.stringify({
+        error: "Internal Error",
+        message: String(error),
+      })
+    );
   }
 }

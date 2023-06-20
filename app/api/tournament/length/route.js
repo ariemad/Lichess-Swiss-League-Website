@@ -1,4 +1,5 @@
 import connectDB from "@/db";
+import { NextResponse } from "next/server";
 
 const mongoose = require("mongoose");
 
@@ -12,8 +13,8 @@ export async function GET(req) {
     const collection = mongoose.connection.db.collection("tournaments");
     const count = await collection.estimatedDocumentCount({});
 
-    return new Response(count);
+    return new NextResponse(count);
   } catch (error) {
-    return new Response(JSON.stringify({ error: "Internal error" }));
+    return new NextResponse(JSON.stringify({ error: "Internal error" }));
   }
 }

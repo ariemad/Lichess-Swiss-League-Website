@@ -141,18 +141,31 @@ function EnhancedTableToolbar({ changeTimeFilter }) {
   );
 }
 
+const getTournamentLength = async () => {
+  const res = await fetch((process.env.URL || "") + `/api/tournament/length`);
+  const data = await res.json();
+  return data;
+};
+
 export default function TournamentTable() {
   const [count, setCount] = React.useState(null);
 
-  (async () => {
-    let res = await fetch(`./api/tournament/length`);
-    let data = await res.json();
-    if (data.hasOwnProperty("error")) {
-      setCount(Number(100));
-    } else {
-      setCount(Number(data));
-    }
-  })();
+  React.useEffect(() => {
+    const fetchData = async () => {
+      try {
+        let data = await getTournamentLength();
+        if (data.hasOwnProperty("error")) {
+          setCount(Number(100));
+        } else {
+          setCount(Number(data));
+        }
+      } catch (error) {
+        setCount(Number(100)); // Set a default count in case of an error
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("startsAt");
@@ -185,7 +198,7 @@ export default function TournamentTable() {
   React.useEffect(() => {
     setVisibleRows(new Array(rowsPerPage).fill(null));
     //Prepare request
-    const baseUrl = `./api/tournament/search`;
+    const baseUrl = `/api/tournament/search`;
     const queryParams = new URLSearchParams();
     queryParams.append("rowsPerPage", rowsPerPage);
     queryParams.append("page", page);

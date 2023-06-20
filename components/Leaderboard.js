@@ -3,15 +3,22 @@
 import { useEffect, useState } from "react";
 import LeaderboardCard from "./LeaderboardCard";
 
+const getLeaderBoard = async () => {
+  const response = await fetch(
+    (process.env.URL || "") + "/api/player/leaderboard"
+  );
+  const data = await response.json();
+
+  return data;
+};
+
 function Leaderboard({ display, array }) {
   const [stats, setStats] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("./api/player/leaderboard");
-
-        const data = await response.json();
+        const data = await getLeaderBoard();
 
         setStats(data);
       } catch (error) {
