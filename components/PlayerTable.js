@@ -141,7 +141,7 @@ function EnhancedTableToolbar({ changeTimeFilter }) {
 }
 
 const getPlayerLength = async () => {
-  const res = await fetch((process.env.URL || "") + `/api/player/length`);
+  const res = await fetch(`/api/player/length`);
   const data = await res.json();
   return data;
 };
@@ -149,14 +149,18 @@ const getPlayerLength = async () => {
 export default function EnhancedTable() {
   const [count, setCount] = React.useState(null);
 
-  (async () => {
-    let data = await getPlayerLength();
-    if (data.hasOwnProperty("error")) {
-      setCount(Number(100));
-    } else {
-      setCount(Number(data));
-    }
-  })();
+  React.useEffect(() => {
+    const fetchData = async () => {
+      try {
+        let data = await getPlayerLength();
+        setCount(data);
+      } catch (error) {
+        setCount(0);
+      }
+    };
+    fetchData();
+    return;
+  });
 
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("participation");

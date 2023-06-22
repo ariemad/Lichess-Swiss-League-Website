@@ -10,11 +10,7 @@ function BlogMonth({ time, data }) {
 
   for (let i = 0; i < data.length; i++) {
     content.push(
-      <Link
-        key={data[i][1]}
-        className={linkStyle}
-        href={(process.env.URL || "") + `/blog/${data[i][1]}`}
-      >
+      <Link key={data[i][1]} className={linkStyle} href={`/blog/${data[i][1]}`}>
         <p className="pl-2">{data[i][0]}</p>
       </Link>
     );

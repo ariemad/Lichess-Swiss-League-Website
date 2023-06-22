@@ -142,7 +142,7 @@ function EnhancedTableToolbar({ changeTimeFilter }) {
 }
 
 const getTournamentLength = async () => {
-  const res = await fetch((process.env.URL || "") + `/api/tournament/length`);
+  const res = await fetch(`/api/tournament/length`);
   const data = await res.json();
   return data;
 };

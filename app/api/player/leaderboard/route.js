@@ -1,6 +1,9 @@
 import connectDB from "@/db";
+import { NextResponse } from "next/server";
 
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
+
+export const dynamic = "force-dynamic";
 
 export async function GET(req) {
   try {
@@ -15,8 +18,10 @@ export async function GET(req) {
 
     let data = await cursor.toArray();
 
-    return new Response(JSON.stringify(data[0]));
+    return new NextResponse(JSON.stringify(data[0]));
   } catch (error) {
-    return new Response(JSON.stringify({ error: "Internal error" }));
+    return new NextResponse(
+      JSON.stringify({ error: "Internal error", message: String(error) })
+    );
   }
 }

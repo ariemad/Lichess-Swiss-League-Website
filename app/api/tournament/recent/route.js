@@ -1,13 +1,15 @@
 import { NextResponse } from "next/server";
 
+export const revalidate = 0;
+
 export async function GET(req) {
   try {
-    const response = await fetch(
+    const apiResponse = await fetch(
       "https://lichess.org/api/team/chess-swiss-league/swiss?max=5",
       { cache: "no-store" }
     );
 
-    let text = (await response.text()).split("\n");
+    let text = (await apiResponse.text()).split("\n");
     text.pop(); //Remove empty string
     let data = text.map((element) => JSON.parse(element));
 

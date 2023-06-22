@@ -1,6 +1,8 @@
 import connectDB from "@/db";
 
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
+
+export const revalidate = 0;
 
 export async function GET(req) {
   try {

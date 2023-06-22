@@ -1,7 +1,9 @@
 import connectDB from "@/db";
 import { NextResponse } from "next/server";
 
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
+
+export const revalidate = 0;
 
 export async function GET(req) {
   try {
