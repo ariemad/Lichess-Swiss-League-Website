@@ -1,17 +1,14 @@
-FROM node:alpine
+FROM node
 
-# Set the working directory inside the container
+############### Build App
 
 WORKDIR /app
 
-# Copy package.json and package-lock.json
 COPY package.json .
 COPY package-lock.json .
 
-# Install dependencies
 RUN npm ci --omit=dev
 
-# Copy the remaining files
 COPY ./app ./app
 COPY ./blogposts ./blogposts
 COPY ./components ./components
@@ -20,21 +17,18 @@ COPY ./style ./style
 COPY ./utils ./utils
 COPY db.js .
 
-
 COPY jsconfig.json .
 COPY next.config.js .
 COPY postcss.config.js .
 COPY tailwind.config.js .
 
-# Expose the desired port(s)
-EXPOSE 3000
-
-# Build the application
 RUN npm run build
 
+EXPOSE 80
 
-# Start the application
-CMD ["npm", "run", "start"]
+############### Run App
+
+CMD ["npm", "run", "prod"]
 
 
 

@@ -1,11 +1,12 @@
 {
   "name": "lichess-swiss-league-website",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "prod": "next start -p 80",
     "lint": "next lint"
   },
   "dependencies": {
