@@ -37,3 +37,5 @@ process.on("beforeExit", () => {
 });
 
 export default connectDB;
+
+connectDB();
