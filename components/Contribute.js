@@ -19,16 +19,6 @@ function Contribute() {
           If you are interested in sponsoring one of our events, we would love
           to hear from you.
         </p>
-        <p>
-          Please contact us via{" "}
-          <Link className={linkStyle} href={links.mail}>
-            email
-          </Link>{" "}
-          or on our{" "}
-          <Link className={linkStyle} href={links.discord}>
-            Discord
-          </Link>
-        </p>
       </div>
       <div className={typography.header + "px-4 pt-8 pb-4 font-bold"}>
         Suggestions and ideas
@@ -38,15 +28,7 @@ function Contribute() {
         <ul className="list-disc px-6 pt-1">
           <li>How we organize our events;</li>
           <li>Swiss League Website;</li>
-          <li>Swiss League Discord.</li>
         </ul>
-        <p className="pt-4">
-          Please share them on our{" "}
-          <Link className={linkStyle} href={links.discord}>
-            Discord
-          </Link>
-          .
-        </p>
       </div>
       <div className={typography.header + "px-4 pt-8 pb-4 font-bold"}>
         Help development
@@ -56,16 +38,19 @@ function Contribute() {
           Swiss League is an open-source project, and we appreciate any
           contributions.
         </p>
-        <p>
-          If you would like to get involved, please reach out to us via{" "}
-          <Link className={linkStyle} href={links.mail}>
-            email
-          </Link>{" "}
-          or on our{" "}
-          <Link className={linkStyle} href={links.discord}>
-            Discord
-          </Link>
-        </p>
+      </div>
+      <div className={typography.headerBig + "text-center pt-5"}>Contacts</div>
+      <div className={typography.header + "px-4 pt-8 pb-8 font-bold"}>
+        <Link className={linkStyle} href={links.mail}>
+          {links.mail.slice(7)}
+        </Link>{" "}
+        <br></br>
+        <Link
+          className={linkStyle}
+          href={"https://lichess.org/forum/team-chess-swiss-league"}
+        >
+          Swiss League Forum on Lichess
+        </Link>{" "}
       </div>
     </div>
   );

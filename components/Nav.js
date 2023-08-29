@@ -87,23 +87,11 @@ function Nav() {
       </div>
       <Link
         href={links.lichess}
-        className="flex-none max-w-fit min-w-fit h-2/4 aspect-square mx-3"
+        className="flex-none max-w-fit min-w-fit h-2/4 aspect-square mx-8"
       >
         <Image
           src="/images/lichess.png"
           alt="Lichess Logo"
-          width={300}
-          height={300}
-          className="h-full w-full"
-        />
-      </Link>
-      <Link
-        href={links.discord}
-        className="flex-none max-w-fit min-w-fit h-2/4 aspect-square mx-3"
-      >
-        <Image
-          src="/images/discord.png"
-          alt="Discord Logo"
           width={300}
           height={300}
           className="h-full w-full"
