@@ -7,13 +7,13 @@ function BlogPost({ last, blogID }) {
   let content;
 
   if (last) {
-    content = posts.at(-1);
+    content = posts[0];
   } else {
     content = posts.find((element) => blogID == element.data.id);
   }
 
   return (
-    <section className={borders + " bg-white"}>
+    <section className={borders + " bg-white" + " mb-6 "}>
       {content.data.image ? (
         <Image
           src={`/images/blogimages${content.data.image}`}
