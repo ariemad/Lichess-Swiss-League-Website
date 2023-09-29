@@ -1,0 +1,10 @@
+check host swissleague.org with address swissleague.org
+   if failed
+    port 443 # Specify the port you want to monitor
+    protocol https # Specify the protocol (https or http)
+    and request "/"
+    with timeout 10 seconds
+   then alert
+
+check process swissLeagueNextApp with pidfile /home/ubuntu/lichess-swiss-league-website/pidfile.pid
+  if does not exist then alert
