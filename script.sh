@@ -35,9 +35,6 @@ export PATH="${new_path#:}:$PATH"
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$script_dir"
 
-# Specify the process name
-process_name="swissLeagueNextApp"
-
 # Specify the command to start the process
 start_command="npm run start"
 
@@ -58,10 +55,10 @@ is_process_running() {
 if [ -f "$pid_file" ]; then
   pid=$(cat "$pid_file")
   if is_process_running "$pid"; then
-    echo "Process '$process_name' with PID $pid is already running."
+    echo "Process with PID $pid is already running."
     exit 0
   else
-    echo "Process '$process_name' with PID $pid is not running. Starting it..."
+    echo "Process with PID $pid is not running. Starting it..."
   fi
 fi
 
@@ -72,4 +69,4 @@ new_pid="$!"
 # Save the new PID to the PID file
 echo "$new_pid" > "$pid_file"
 
-echo "Process '$process_name' started with PID $new_pid."
+echo "Process started with PID $new_pid."

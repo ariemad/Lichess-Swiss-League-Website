@@ -1,1 +1,1 @@
-*/1 * * * * ~/lichess-swiss-league-website/lichessswissleague.sh start
+*/1 * * * * ~/lichess-swiss-league-website/script.sh start
