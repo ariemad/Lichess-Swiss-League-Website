@@ -85,13 +85,38 @@ function Nav() {
           </div>
         </div>
       </div>
+
       <Link
-        href={links.lichess}
-        className="flex-none max-w-fit min-w-fit h-2/4 aspect-square mx-8"
+        href={links.githubRepo}
+        className="flex-none max-w-fit min-w-fit h-2/4 aspect-square mx-3"
       >
         <Image
-          src="/images/lichess.png"
-          alt="Lichess Logo"
+          src="/images/github.svg"
+          alt="github logo"
+          width={300}
+          height={300}
+          className="h-full w-full"
+        />
+      </Link>
+      <Link
+        href={links.linkedin}
+        className="flex-none max-w-fit min-w-fit h-2/4 aspect-square mx-3"
+      >
+        <Image
+          src="/images/linkedin.svg"
+          alt="linkedin logo"
+          width={300}
+          height={300}
+          className="h-full w-full"
+        />
+      </Link>
+      <Link
+        href={links.mailToDev}
+        className="flex-none max-w-fit min-w-fit h-2/4 aspect-square mx-3"
+      >
+        <Image
+          src="/images/mail.svg"
+          alt="mail logo"
           width={300}
           height={300}
           className="h-full w-full"
